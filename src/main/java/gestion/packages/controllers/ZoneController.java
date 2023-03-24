@@ -48,6 +48,11 @@ public class ZoneController {
 		Zone z = zoneServ.findById(Integer.parseInt(id));
 		z.setNom(zone.getNom());
 		zoneServ.update(z);
+	
 	}
 
+	 @GetMapping("/ville/{nom}")
+	    public List<Zone> getAllZone(@PathVariable String nom){
+	        return zoneServ.findAllByVille(nom);
+	    }
 }
