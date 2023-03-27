@@ -29,6 +29,7 @@ public class Pharmacie {
 	private Double latitude;
 	private Double longitude;
 	private String image;
+
 	@ManyToOne
 	@JsonIgnore
 	private Zone zone;

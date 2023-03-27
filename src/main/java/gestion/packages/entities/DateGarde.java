@@ -18,7 +18,7 @@ import lombok.Setter;
 @Getter(value = AccessLevel.PUBLIC)
 @Setter(value = AccessLevel.PUBLIC)
 
-public class DateGarde implements Serializable {
+public class DateGarde  {
 
 	@EmbeddedId
 	private Date_ids di;

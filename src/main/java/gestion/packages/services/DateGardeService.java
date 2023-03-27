@@ -11,35 +11,35 @@ import gestion.packages.idao.IDao;
 import gestion.packages.repositories.DateGardeRep;
 
 @Service
-	public class DateGardeService implements IDao <DateGarde> {
+public class DateGardeService implements IDao<DateGarde> {
 
-	    @Autowired
-	    private DateGardeRep dateGardeRep;
+	@Autowired
+	private DateGardeRep dateGardeRep;
 
-		@Override
-		 public DateGarde save(DateGarde c) {
-	        return dateGardeRep.save(c);
-	    }
+	@Override
+	public DateGarde save(DateGarde c) {
+		return dateGardeRep.save(c);
+	}
 
-		 @Override
-		    public DateGarde findById(int id) {
-		        return dateGardeRep.findById(id);
-		    }
+	@Override
+	public DateGarde findById(int id) {
+		return dateGardeRep.findById(id);
+	}
 
-		    @Override
-		    public List<DateGarde> findAll() {
-		        return dateGardeRep.findAll();
-		    }
+	@Override
+	public List<DateGarde> findAll() {
+		return dateGardeRep.findAll();
+	}
 
-		    @Override
-		    public void delete(DateGarde c) {
-		    	dateGardeRep.delete(c);
-		    }
+	@Override
+	public void delete(DateGarde c) {
+		dateGardeRep.delete(c);
+	}
 
-		    @Override
-			public void update(DateGarde o) {
-		    	dateGardeRep.save(o);
+	@Override
+	public void update(DateGarde o) {
+		dateGardeRep.save(o);
 
-			}
-	   
+	}
+
 }

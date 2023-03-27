@@ -10,7 +10,6 @@ import gestion.packages.entities.Garde;
 import gestion.packages.idao.IDao;
 import gestion.packages.repositories.GardeRep;
 
-
 @Service
 public class GardeService implements IDao<Garde> {
 	@Autowired

@@ -11,5 +11,5 @@ import gestion.packages.entities.Zone;
 public interface ZoneRep extends JpaRepository<Zone, Integer> {
 	Zone findById(int id);
 	 @Query("select z.nom from Zone z where z.ville.nom= :nom order by z.nom")
-     List<Zone> findZoneByVille(@Param("nom") String nom);
+    List<Zone> findZoneByVille(@Param("nom") String nom);
 }

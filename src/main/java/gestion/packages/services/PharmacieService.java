@@ -43,11 +43,5 @@ public class PharmacieService implements IDao<Pharmacie> {
 		pharmacieRep.save(o);
 
 	}
-	 public List<Pharmacie> findAllByVilleAndZone(String ville,String zone){
-	        return pharmacieRep.findAllByVilleAndZone(ville,zone);
-	    }
 
-	    public List<Pharmacie> findAllPharmacies(String ville, String zone,String periode){
-	        return  pharmacieRep.findAllPh(ville,zone,periode);
-	    }
 }
