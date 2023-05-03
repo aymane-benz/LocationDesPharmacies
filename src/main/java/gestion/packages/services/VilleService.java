@@ -25,6 +25,7 @@ public class VilleService implements IDao<Ville> {
 
 		return villeRep.findById(id);
 	}
+	
 
 	@Override
 	public List<Ville> findAll() {

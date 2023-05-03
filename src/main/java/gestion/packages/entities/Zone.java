@@ -26,9 +26,11 @@ public class Zone {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom;
+	@JsonIgnore
 	@OneToMany(mappedBy = "zone")
 	private List<Pharmacie> pharm;
-	@ManyToOne(fetch = FetchType.EAGER)
 	@JsonIgnore
+	@ManyToOne(fetch = FetchType.EAGER)
+	
 	private Ville ville;
 }

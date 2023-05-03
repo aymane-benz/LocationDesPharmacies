@@ -1,18 +1,23 @@
 package gestion.packages.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import gestion.packages.entities.Ville;
 import gestion.packages.entities.Zone;
 import gestion.packages.idao.IDao;
+import gestion.packages.repositories.VilleRep;
 import gestion.packages.repositories.ZoneRep;
 
 @Service
 public class ZoneService implements IDao<Zone> {
 	@Autowired
 	private ZoneRep zoneRep;
+	@Autowired
+	private VilleRep villeRep;
 
 	@Override
 	public Zone save(Zone o) {
@@ -43,9 +48,9 @@ public class ZoneService implements IDao<Zone> {
 		zoneRep.save(o);
 
 	}
-	  public List<Zone> findAllByVille(String nom){
 
-	        return zoneRep.findZoneByVille(nom);
-	    }
+	public List<Zone> findAllByVille(String nom) {
 
+		return zoneRep.findZoneByVille(nom);
+	}
 }

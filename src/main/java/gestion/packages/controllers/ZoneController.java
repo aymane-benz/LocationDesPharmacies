@@ -1,6 +1,9 @@
 package gestion.packages.controllers;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import gestion.packages.entities.Ville;
 import gestion.packages.entities.Zone;
-
+import gestion.packages.repositories.VilleRep;
+import gestion.packages.services.VilleService;
 import gestion.packages.services.ZoneService;
 
 @RestController
@@ -21,6 +26,8 @@ import gestion.packages.services.ZoneService;
 public class ZoneController {
 	@Autowired
 	private ZoneService zoneServ;
+	@Autowired
+	private VilleService villeServ;
 
 	@PostMapping("/save")
 	public void save(@RequestBody Zone zone) {
@@ -50,9 +57,12 @@ public class ZoneController {
 		zoneServ.update(z);
 	
 	}
-
 	 @GetMapping("/ville/{nom}")
 	    public List<Zone> getAllZone(@PathVariable String nom){
 	        return zoneServ.findAllByVille(nom);
 	    }
+
+
+	
+
 }
