@@ -14,4 +14,8 @@ public interface ZoneRep extends JpaRepository<Zone, Integer> {
 
 	@Query("select z from Zone z where z.ville.nom= :nom order by z.nom")
 	List<Zone> findZoneByVille(@Param("nom") String nom);
+	
+	@Query("SELECT z FROM Zone z JOIN FETCH z.ville")
+	List<Zone> findAllWithVille();
+
 }

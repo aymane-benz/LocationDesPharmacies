@@ -9,6 +9,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AccessLevel;
@@ -29,8 +30,10 @@ public class Zone {
 	@JsonIgnore
 	@OneToMany(mappedBy = "zone")
 	private List<Pharmacie> pharm;
-	@JsonIgnore
+	
+	
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ville_id")
 	
 	private Ville ville;
 }

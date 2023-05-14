@@ -20,6 +20,7 @@ import gestion.packages.services.VilleService;
 
 @RestController
 @RequestMapping("api/ville")
+@CrossOrigin(origins = "http://localhost:3000")
 public class VilleController {
 	@Autowired
 	private VilleService villeServ;
@@ -30,7 +31,7 @@ public class VilleController {
 	}
 
 	@GetMapping("/all")
-	@CrossOrigin(origins = "http://localhost:3000")
+	
 	public List<Ville> findAll() {
 		return villeServ.findAll();
 	}

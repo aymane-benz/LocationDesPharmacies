@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import gestion.packages.services.ZoneService;
 
 @RestController
 @RequestMapping("api/zone")
+@CrossOrigin
 public class ZoneController {
 	@Autowired
 	private ZoneService zoneServ;
@@ -41,8 +43,9 @@ public class ZoneController {
 
 	@GetMapping("/all")
 	public List<Zone> findAll() {
-		return zoneServ.findAll();
+		return zoneServ.findAllWithVille();
 	}
+	
 
 	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable(required = true) String id) {

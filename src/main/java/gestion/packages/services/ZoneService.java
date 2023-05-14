@@ -53,4 +53,8 @@ public class ZoneService implements IDao<Zone> {
 
 		return zoneRep.findZoneByVille(nom);
 	}
+	
+	public List<Zone> findAllWithVille() {
+        return zoneRep.findAllWithVille();
+    }
 }
