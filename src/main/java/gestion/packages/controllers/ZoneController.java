@@ -24,7 +24,7 @@ import gestion.packages.services.ZoneService;
 
 @RestController
 @RequestMapping("api/zone")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 public class ZoneController {
 	@Autowired
 	private ZoneService zoneServ;

@@ -31,7 +31,7 @@ public class Pharmacie {
 	private String image;
 
 	@ManyToOne
-	@JsonIgnore
+	
 	private Zone zone;
 	@OneToMany(mappedBy = "pharmacie")
 	private List<DateGarde> date_garde;

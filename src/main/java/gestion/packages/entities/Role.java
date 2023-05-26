@@ -1,31 +1,26 @@
 package gestion.packages.entities;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import static gestion.packages.entities.Permission.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-@Entity
-@NoArgsConstructor
-@Getter(value = AccessLevel.PUBLIC)
-@Setter(value = AccessLevel.PUBLIC)
-public class Role {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String nom;
-	@ManyToMany(mappedBy = "role", fetch = FetchType.LAZY)
-	@JsonIgnore
-	private List<User> user;
+@RequiredArgsConstructor
+public enum Role {
 
+	USER(Collections.emptySet()), ADMIN(Set.of(ADMIN_READ, ADMIN_UPDATE, ADMIN_DELETE, ADMIN_CREATE));
+
+	@Getter
+	private final Set<Permission> permissions;
+
+	public List<SimpleGrantedAuthority> getAuthorities() {
+		var authorities = getPermissions().stream()
+				.map(permission -> new SimpleGrantedAuthority(permission.getPermission())).collect(Collectors.toList());
+		authorities.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
+		return authorities;
+	}
 }
