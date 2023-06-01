@@ -25,7 +25,7 @@ import gestion.packages.services.PharmacieService;
 
 @RestController
 @RequestMapping("api/pharmacie")
-@CrossOrigin(origins = "https://localisationpharmacies.vercel.app")
+@CrossOrigin
 public class PharmacieController {
 	@Autowired
 	private PharmacieService pharmService;

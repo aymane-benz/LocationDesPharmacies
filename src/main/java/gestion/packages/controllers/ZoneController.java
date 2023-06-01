@@ -24,7 +24,7 @@ import gestion.packages.services.ZoneService;
 
 @RestController
 @RequestMapping("api/zone")
-@CrossOrigin(origins = "https://localisationpharmacies.vercel.app")
+@CrossOrigin
 public class ZoneController {
 	@Autowired
 	private ZoneService zoneServ;
