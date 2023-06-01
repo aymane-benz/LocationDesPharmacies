@@ -19,7 +19,7 @@ import gestion.packages.services.UserService;
 
 @RestController
 @RequestMapping("api/user")
-@CrossOrigin
+@CrossOrigin(origins = "https://localisationpharmacies.vercel.app")
 public class UserController {
 	@Autowired
 	private UserService userServ;

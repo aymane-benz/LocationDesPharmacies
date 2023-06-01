@@ -15,7 +15,7 @@ import gestion.packages.services.GardeService;
 
 @RestController
 @RequestMapping("api/garde")
-@CrossOrigin
+@CrossOrigin(origins = "https://localisationpharmacies.vercel.app")
 public class GardeController {
 	@Autowired
 	private GardeService gardeServ;

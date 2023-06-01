@@ -20,7 +20,7 @@ import gestion.packages.services.VilleService;
 
 @RestController
 @RequestMapping("api/ville")
-@CrossOrigin
+@CrossOrigin(origins = "https://localisationpharmacies.vercel.app")
 public class VilleController {
 	@Autowired
 	private VilleService villeServ;
