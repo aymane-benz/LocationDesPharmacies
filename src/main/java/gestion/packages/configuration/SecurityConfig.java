@@ -42,7 +42,7 @@ public class SecurityConfig {
             .authorizeRequests()
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/pharmacie/**", "/api/ville/**", "/api/zone/**").authenticated()
+                .requestMatchers("/api/pharmacie/**", "/api/ville/**", "/api/zone/**").permitAll()
                
                 .anyRequest().authenticated()
                 .and()
