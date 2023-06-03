@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,6 +29,7 @@ public class Pharmacie {
 	private String adress;
 	private Double latitude;
 	private Double longitude;
+	@Column(length = 65535)
 	private String image;
 
 	@ManyToOne
